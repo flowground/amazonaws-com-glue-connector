@@ -1,0 +1,329 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "CatalogId": {
+                    "description": "The ID of the Data Catalog where the partition to be updated resides. If none is supplied, the AWS account ID is used by default.",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string",
+                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                },
+                "DatabaseName": {
+                    "description": "The name of the catalog database in which the table in question resides.",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string",
+                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                },
+                "PartitionInput": {
+                    "description": "The new partition object to which to update the partition.",
+                    "properties": {
+                        "LastAccessTime": {
+                            "description": "The last time at which the partition was accessed.",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "LastAnalyzedTime": {
+                            "description": "The last time at which column statistics were computed for this partition.",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "Parameters": {
+                            "description": "These key-value pairs define partition parameters.",
+                            "items": {
+                                "properties": {
+                                    "key": {
+                                        "maxLength": 255,
+                                        "minLength": 1,
+                                        "type": "string",
+                                        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                    },
+                                    "value": {
+                                        "maxLength": 512000,
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "StorageDescriptor": {
+                            "description": "Provides information about the physical location where the partition is stored.",
+                            "properties": {
+                                "BucketColumns": {
+                                    "description": "A list of reducer grouping columns, clustering columns, and bucketing columns in the table.",
+                                    "items": {
+                                        "maxLength": 255,
+                                        "minLength": 1,
+                                        "type": "string",
+                                        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                    },
+                                    "type": "array"
+                                },
+                                "Columns": {
+                                    "description": "A list of the <code>Columns</code> in the table.",
+                                    "items": {
+                                        "description": "A column in a <code>Table</code>.",
+                                        "properties": {
+                                            "Comment": {
+                                                "description": "Free-form text comment.",
+                                                "maxLength": 255,
+                                                "minLength": 0,
+                                                "type": "string",
+                                                "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                            },
+                                            "Name": {
+                                                "description": "The name of the <code>Column</code>.",
+                                                "maxLength": 255,
+                                                "minLength": 1,
+                                                "type": "string",
+                                                "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                            },
+                                            "Type": {
+                                                "description": "The datatype of data in the <code>Column</code>.",
+                                                "maxLength": 131072,
+                                                "minLength": 0,
+                                                "type": "string",
+                                                "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                            }
+                                        },
+                                        "required": [
+                                            "Name"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "Compressed": {
+                                    "description": "True if the data in the table is compressed, or False if not.",
+                                    "type": "boolean"
+                                },
+                                "InputFormat": {
+                                    "description": "The input format: <code>SequenceFileInputFormat</code> (binary), or <code>TextInputFormat</code>, or a custom format.",
+                                    "maxLength": 128,
+                                    "type": "string",
+                                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                },
+                                "Location": {
+                                    "description": "The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.",
+                                    "maxLength": 2056,
+                                    "type": "string",
+                                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                                },
+                                "NumberOfBuckets": {
+                                    "description": "Must be specified if the table contains any dimension columns.",
+                                    "type": "integer"
+                                },
+                                "OutputFormat": {
+                                    "description": "The output format: <code>SequenceFileOutputFormat</code> (binary), or <code>IgnoreKeyTextOutputFormat</code>, or a custom format.",
+                                    "maxLength": 128,
+                                    "type": "string",
+                                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                },
+                                "Parameters": {
+                                    "description": "User-supplied properties in key-value form.",
+                                    "items": {
+                                        "properties": {
+                                            "key": {
+                                                "maxLength": 255,
+                                                "minLength": 1,
+                                                "type": "string",
+                                                "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                            },
+                                            "value": {
+                                                "maxLength": 512000,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "SerdeInfo": {
+                                    "description": "Serialization/deserialization (SerDe) information.",
+                                    "properties": {
+                                        "Name": {
+                                            "description": "Name of the SerDe.",
+                                            "maxLength": 255,
+                                            "minLength": 1,
+                                            "type": "string",
+                                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                        },
+                                        "Parameters": {
+                                            "description": "These key-value pairs define initialization parameters for the SerDe.",
+                                            "items": {
+                                                "properties": {
+                                                    "key": {
+                                                        "maxLength": 255,
+                                                        "minLength": 1,
+                                                        "type": "string",
+                                                        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                                    },
+                                                    "value": {
+                                                        "maxLength": 512000,
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "SerializationLibrary": {
+                                            "description": "Usually the class that implements the SerDe. An example is: <code>org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe</code>.",
+                                            "maxLength": 255,
+                                            "minLength": 1,
+                                            "type": "string",
+                                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "SkewedInfo": {
+                                    "description": "Information about values that appear very frequently in a column (skewed values).",
+                                    "properties": {
+                                        "SkewedColumnNames": {
+                                            "description": "A list of names of columns that contain skewed values.",
+                                            "items": {
+                                                "maxLength": 255,
+                                                "minLength": 1,
+                                                "type": "string",
+                                                "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "SkewedColumnValueLocationMaps": {
+                                            "description": "A mapping of skewed values to the columns that contain them.",
+                                            "items": {
+                                                "properties": {
+                                                    "key": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "SkewedColumnValues": {
+                                            "description": "A list of values that appear so frequently as to be considered skewed.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "SortColumns": {
+                                    "description": "A list specifying the sort order of each bucket in the table.",
+                                    "items": {
+                                        "description": "Specifies the sort order of a sorted column.",
+                                        "properties": {
+                                            "Column": {
+                                                "description": "The name of the column.",
+                                                "maxLength": 255,
+                                                "minLength": 1,
+                                                "type": "string",
+                                                "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                            },
+                                            "SortOrder": {
+                                                "description": "Indicates that the column is sorted in ascending order (<code>== 1</code>), or in descending order (<code>==0</code>).",
+                                                "maximum": 1,
+                                                "minimum": 0,
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "required": [
+                                            "Column",
+                                            "SortOrder"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "StoredAsSubDirectories": {
+                                    "description": "True if the table data is stored in subdirectories, or False if not.",
+                                    "type": "boolean"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "Values": {
+                            "description": "The values of the partition. Although this parameter is not required by the SDK, you must specify this parameter for a valid input.",
+                            "items": {
+                                "maxLength": 1024,
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "PartitionValueList": {
+                    "description": "A list of the values defining the partition.",
+                    "items": {
+                        "maxLength": 1024,
+                        "type": "string"
+                    },
+                    "maxItems": 100,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "TableName": {
+                    "description": "The name of the table where the partition to be updated is located.",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string",
+                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                }
+            },
+            "required": [
+                "DatabaseName",
+                "TableName",
+                "PartitionValueList",
+                "PartitionInput"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

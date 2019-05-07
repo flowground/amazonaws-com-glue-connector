@@ -1,0 +1,166 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "JobName": {
+                    "description": "Name of the job definition to update.",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string",
+                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                },
+                "JobUpdate": {
+                    "description": "Specifies the values with which to update the job definition.",
+                    "properties": {
+                        "AllocatedCapacity": {
+                            "description": "<p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p> <p>The number of AWS Glue data processing units (DPUs) to allocate to this Job. From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href=\"https://aws.amazon.com/glue/pricing/\">AWS Glue pricing page</a>.</p>This property is deprecated, use MaxCapacity instead.",
+                            "type": "integer"
+                        },
+                        "Command": {
+                            "description": "The JobCommand that executes this job (required).",
+                            "properties": {
+                                "Name": {
+                                    "description": "The name of the job command: this must be <code>glueetl</code>, for an Apache Spark ETL job, or <code>pythonshell</code>, for a Python shell job.",
+                                    "type": "string"
+                                },
+                                "ScriptLocation": {
+                                    "description": "Specifies the S3 path to a script that executes a job (required).",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "Connections": {
+                            "description": "The connections used for this job.",
+                            "properties": {
+                                "Connections": {
+                                    "description": "A list of connections used by the job.",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "DefaultArguments": {
+                            "description": "<p>The default arguments for this job.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.</p> <p>For information about how to specify and consume your own Job arguments, see the <a href=\"http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html\">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href=\"http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>",
+                            "items": {
+                                "properties": {
+                                    "key": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "Description": {
+                            "description": "Description of the job being defined.",
+                            "maxLength": 2048,
+                            "minLength": 0,
+                            "type": "string",
+                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                        },
+                        "ExecutionProperty": {
+                            "description": "An ExecutionProperty specifying the maximum number of concurrent runs allowed for this job.",
+                            "properties": {
+                                "MaxConcurrentRuns": {
+                                    "description": "The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.",
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "LogUri": {
+                            "description": "This field is reserved for future use.",
+                            "type": "string"
+                        },
+                        "MaxCapacity": {
+                            "description": "<p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href=\"https://aws.amazon.com/glue/pricing/\">AWS Glue pricing page</a>.</p> <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a python shell job, or an Apache Spark ETL job:</p> <ul> <li> <p>When you specify a python shell job (<code>JobCommand.Name</code>=\"pythonshell\"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p> </li> <li> <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>=\"glueetl\"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p> </li> </ul>",
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "MaxRetries": {
+                            "description": "The maximum number of times to retry this job if it fails.",
+                            "type": "integer"
+                        },
+                        "NotificationProperty": {
+                            "description": "Specifies configuration properties of a job notification.",
+                            "properties": {
+                                "NotifyDelayAfter": {
+                                    "description": "After a job run starts, the number of minutes to wait before sending a job run delay notification.",
+                                    "minimum": 1,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "Role": {
+                            "description": "The name or ARN of the IAM role associated with this job (required).",
+                            "type": "string"
+                        },
+                        "SecurityConfiguration": {
+                            "description": "The name of the SecurityConfiguration structure to be used with this job.",
+                            "maxLength": 255,
+                            "minLength": 1,
+                            "type": "string",
+                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                        },
+                        "Timeout": {
+                            "description": "The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).",
+                            "minimum": 1,
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "JobName",
+                "JobUpdate"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

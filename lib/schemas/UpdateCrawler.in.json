@@ -1,0 +1,190 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Classifiers": {
+                    "description": "A list of custom classifiers that the user has registered. By default, all built-in classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.",
+                    "items": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string",
+                        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                    },
+                    "type": "array"
+                },
+                "Configuration": {
+                    "description": "Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html\">Configuring a Crawler</a>.",
+                    "type": "string"
+                },
+                "CrawlerSecurityConfiguration": {
+                    "description": "The name of the SecurityConfiguration structure to be used by this Crawler.",
+                    "maxLength": 128,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "DatabaseName": {
+                    "description": "The AWS Glue database where results are stored, such as: <code>arn:aws:daylight:us-east-1::database/sometable/*</code>.",
+                    "type": "string"
+                },
+                "Description": {
+                    "description": "A description of the new crawler.",
+                    "maxLength": 2048,
+                    "minLength": 0,
+                    "type": "string",
+                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                },
+                "Name": {
+                    "description": "Name of the new crawler.",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string",
+                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                },
+                "Role": {
+                    "description": "The IAM role (or ARN of an IAM role) used by the new crawler to access customer resources.",
+                    "type": "string"
+                },
+                "Schedule": {
+                    "description": "A <code>cron</code> expression used to specify the schedule (see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.",
+                    "type": "string"
+                },
+                "SchemaChangePolicy": {
+                    "description": "Policy for the crawler's update and deletion behavior.",
+                    "properties": {
+                        "DeleteBehavior": {
+                            "description": "The deletion behavior when the crawler finds a deleted object.",
+                            "enum": [
+                                "LOG",
+                                "DELETE_FROM_DATABASE",
+                                "DEPRECATE_IN_DATABASE"
+                            ],
+                            "type": "string"
+                        },
+                        "UpdateBehavior": {
+                            "description": "The update behavior when the crawler finds a changed schema.",
+                            "enum": [
+                                "LOG",
+                                "UPDATE_IN_DATABASE"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "TablePrefix": {
+                    "description": "The table prefix used for catalog tables that are created.",
+                    "maxLength": 128,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "Targets": {
+                    "description": "A list of targets to crawl.",
+                    "properties": {
+                        "DynamoDBTargets": {
+                            "description": "Specifies DynamoDB targets.",
+                            "items": {
+                                "description": "Specifies a DynamoDB table to crawl.",
+                                "properties": {
+                                    "Path": {
+                                        "description": "The name of the DynamoDB table to crawl.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "JdbcTargets": {
+                            "description": "Specifies JDBC targets.",
+                            "items": {
+                                "description": "Specifies a JDBC data store to crawl.",
+                                "properties": {
+                                    "ConnectionName": {
+                                        "description": "The name of the connection to use to connect to the JDBC target.",
+                                        "type": "string"
+                                    },
+                                    "Exclusions": {
+                                        "description": "A list of glob patterns used to exclude from the crawl. For more information, see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/add-crawler.html\">Catalog Tables with a Crawler</a>.",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "Path": {
+                                        "description": "The path of the JDBC target.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "S3Targets": {
+                            "description": "Specifies Amazon S3 targets.",
+                            "items": {
+                                "description": "Specifies a data store in Amazon S3.",
+                                "properties": {
+                                    "Exclusions": {
+                                        "description": "A list of glob patterns used to exclude from the crawl. For more information, see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/add-crawler.html\">Catalog Tables with a Crawler</a>.",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "Path": {
+                                        "description": "The path to the Amazon S3 target.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "Name"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

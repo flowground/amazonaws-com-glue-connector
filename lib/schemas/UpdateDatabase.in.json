@@ -1,0 +1,113 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "CatalogId": {
+                    "description": "The ID of the Data Catalog in which the metadata database resides. If none is supplied, the AWS account ID is used by default.",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string",
+                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                },
+                "DatabaseInput": {
+                    "description": "A <code>DatabaseInput</code> object specifying the new definition of the metadata database in the catalog.",
+                    "properties": {
+                        "Description": {
+                            "description": "Description of the database",
+                            "maxLength": 2048,
+                            "minLength": 0,
+                            "type": "string",
+                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                        },
+                        "LocationUri": {
+                            "description": "The location of the database (for example, an HDFS path).",
+                            "maxLength": 1024,
+                            "minLength": 1,
+                            "type": "string",
+                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                        },
+                        "Name": {
+                            "description": "Name of the database. For Hive compatibility, this is folded to lowercase when it is stored.",
+                            "maxLength": 255,
+                            "minLength": 1,
+                            "type": "string",
+                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                        },
+                        "Parameters": {
+                            "description": "Thes key-value pairs define parameters and properties of the database.",
+                            "items": {
+                                "properties": {
+                                    "key": {
+                                        "maxLength": 255,
+                                        "minLength": 1,
+                                        "type": "string",
+                                        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                    },
+                                    "value": {
+                                        "maxLength": 512000,
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "Name"
+                    ],
+                    "type": "object"
+                },
+                "Name": {
+                    "description": "The name of the database to update in the catalog. For Hive compatibility, this is folded to lowercase.",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string",
+                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                }
+            },
+            "required": [
+                "Name",
+                "DatabaseInput"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

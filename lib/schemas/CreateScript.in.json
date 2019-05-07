@@ -1,0 +1,144 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "DagEdges": {
+                    "description": "A list of the edges in the DAG.",
+                    "items": {
+                        "description": "Represents a directional edge in a directed acyclic graph (DAG).",
+                        "properties": {
+                            "Source": {
+                                "description": "The ID of the node at which the edge starts.",
+                                "maxLength": 255,
+                                "minLength": 1,
+                                "pattern": "[A-Za-z_][A-Za-z0-9_]*",
+                                "type": "string"
+                            },
+                            "Target": {
+                                "description": "The ID of the node at which the edge ends.",
+                                "maxLength": 255,
+                                "minLength": 1,
+                                "pattern": "[A-Za-z_][A-Za-z0-9_]*",
+                                "type": "string"
+                            },
+                            "TargetParameter": {
+                                "description": "The target of the edge.",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "Source",
+                            "Target"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "DagNodes": {
+                    "description": "A list of the nodes in the DAG.",
+                    "items": {
+                        "description": "Represents a node in a directed acyclic graph (DAG)",
+                        "properties": {
+                            "Args": {
+                                "description": "Properties of the node, in the form of name-value pairs.",
+                                "items": {
+                                    "description": "An argument or property of a node.",
+                                    "properties": {
+                                        "Name": {
+                                            "description": "The name of the argument or property.",
+                                            "type": "string"
+                                        },
+                                        "Param": {
+                                            "description": "True if the value is used as a parameter.",
+                                            "type": "boolean"
+                                        },
+                                        "Value": {
+                                            "description": "The value of the argument or property.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "Name",
+                                        "Value"
+                                    ],
+                                    "type": "object"
+                                },
+                                "maxItems": 50,
+                                "minItems": 0,
+                                "type": "array"
+                            },
+                            "Id": {
+                                "description": "A node identifier that is unique within the node's graph.",
+                                "maxLength": 255,
+                                "minLength": 1,
+                                "pattern": "[A-Za-z_][A-Za-z0-9_]*",
+                                "type": "string"
+                            },
+                            "LineNumber": {
+                                "description": "The line number of the node.",
+                                "type": "integer"
+                            },
+                            "NodeType": {
+                                "description": "The type of node this is.",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "Id",
+                            "NodeType",
+                            "Args"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "Language": {
+                    "description": "The programming language of the resulting code from the DAG.",
+                    "enum": [
+                        "PYTHON",
+                        "SCALA"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

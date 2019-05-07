@@ -1,0 +1,115 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "AddArguments": {
+                    "description": "The map of arguments to add the map of arguments used to configure the DevEndpoint.",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "maxItems": 100,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "AddPublicKeys": {
+                    "description": "The list of public keys for the DevEndpoint to use.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "maxItems": 5,
+                    "type": "array"
+                },
+                "CustomLibraries": {
+                    "description": "Custom Python or Java libraries to be loaded in the DevEndpoint.",
+                    "properties": {
+                        "ExtraJarsS3Path": {
+                            "description": "<p>Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint.</p> <p>Please note that only pure Java/Scala libraries can currently be used on a DevEndpoint.</p>",
+                            "type": "string"
+                        },
+                        "ExtraPythonLibsS3Path": {
+                            "description": "<p>Path(s) to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint. Multiple values must be complete paths separated by a comma.</p> <p>Please note that only pure Python libraries can currently be used on a DevEndpoint. Libraries that rely on C extensions, such as the <a href=\"http://pandas.pydata.org/\">pandas</a> Python data analysis library, are not yet supported.</p>",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "DeleteArguments": {
+                    "description": "The list of argument keys to be deleted from the map of arguments used to configure the DevEndpoint.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "DeletePublicKeys": {
+                    "description": "The list of public keys to be deleted from the DevEndpoint.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "maxItems": 5,
+                    "type": "array"
+                },
+                "EndpointName": {
+                    "description": "The name of the DevEndpoint to be updated.",
+                    "type": "string"
+                },
+                "PublicKey": {
+                    "description": "The public key for the DevEndpoint to use.",
+                    "type": "string"
+                },
+                "UpdateEtlLibraries": {
+                    "description": "True if the list of custom libraries to be loaded in the development endpoint needs to be updated, or False otherwise.",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "EndpointName"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,124 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "GrokClassifier": {
+                    "description": "A <code>GrokClassifier</code> object with updated fields.",
+                    "properties": {
+                        "Classification": {
+                            "description": "An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.",
+                            "type": "string"
+                        },
+                        "CustomPatterns": {
+                            "description": "Optional custom grok patterns used by this classifier.",
+                            "maxLength": 16000,
+                            "minLength": 0,
+                            "type": "string",
+                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                        },
+                        "GrokPattern": {
+                            "description": "The grok pattern used by this classifier.",
+                            "maxLength": 2048,
+                            "minLength": 1,
+                            "type": "string",
+                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\t]*"
+                        },
+                        "Name": {
+                            "description": "The name of the <code>GrokClassifier</code>.",
+                            "maxLength": 255,
+                            "minLength": 1,
+                            "type": "string",
+                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                        }
+                    },
+                    "required": [
+                        "Name"
+                    ],
+                    "type": "object"
+                },
+                "JsonClassifier": {
+                    "description": "A <code>JsonClassifier</code> object with updated fields.",
+                    "properties": {
+                        "JsonPath": {
+                            "description": "A <code>JsonPath</code> string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in <a href=\"https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json\">Writing JsonPath Custom Classifiers</a>.",
+                            "type": "string"
+                        },
+                        "Name": {
+                            "description": "The name of the classifier.",
+                            "maxLength": 255,
+                            "minLength": 1,
+                            "type": "string",
+                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                        }
+                    },
+                    "required": [
+                        "Name"
+                    ],
+                    "type": "object"
+                },
+                "XMLClassifier": {
+                    "description": "An <code>XMLClassifier</code> object with updated fields.",
+                    "properties": {
+                        "Classification": {
+                            "description": "An identifier of the data format that the classifier matches.",
+                            "type": "string"
+                        },
+                        "Name": {
+                            "description": "The name of the classifier.",
+                            "maxLength": 255,
+                            "minLength": 1,
+                            "type": "string",
+                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                        },
+                        "RowTag": {
+                            "description": "The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by <code>/&gt;</code>). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <code>&lt;row item_a=\"A\" item_b=\"B\"&gt;&lt;/row&gt;</code> is okay, but <code>&lt;row item_a=\"A\" item_b=\"B\" /&gt;</code> is not).",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Name"
+                    ],
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

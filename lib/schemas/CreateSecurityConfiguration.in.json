@@ -1,0 +1,125 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "EncryptionConfiguration": {
+                    "description": "The encryption configuration for the new security configuration.",
+                    "properties": {
+                        "CloudWatchEncryption": {
+                            "description": "The encryption configuration for CloudWatch.",
+                            "properties": {
+                                "CloudWatchEncryptionMode": {
+                                    "description": "The encryption mode to use for CloudWatch data.",
+                                    "enum": [
+                                        "DISABLED",
+                                        "SSE-KMS"
+                                    ],
+                                    "type": "string"
+                                },
+                                "KmsKeyArn": {
+                                    "description": "The AWS ARN of the KMS key to be used to encrypt the data.",
+                                    "pattern": "arn:aws:kms:.*",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "JobBookmarksEncryption": {
+                            "description": "The encryption configuration for Job Bookmarks.",
+                            "properties": {
+                                "JobBookmarksEncryptionMode": {
+                                    "description": "The encryption mode to use for Job bookmarks data.",
+                                    "enum": [
+                                        "DISABLED",
+                                        "CSE-KMS"
+                                    ],
+                                    "type": "string"
+                                },
+                                "KmsKeyArn": {
+                                    "description": "The AWS ARN of the KMS key to be used to encrypt the data.",
+                                    "pattern": "arn:aws:kms:.*",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "S3Encryption": {
+                            "description": "The encryption configuration for S3 data.",
+                            "items": {
+                                "description": "Specifies how S3 data should be encrypted.",
+                                "properties": {
+                                    "KmsKeyArn": {
+                                        "description": "The AWS ARN of the KMS key to be used to encrypt the data.",
+                                        "pattern": "arn:aws:kms:.*",
+                                        "type": "string"
+                                    },
+                                    "S3EncryptionMode": {
+                                        "description": "The encryption mode to use for S3 data.",
+                                        "enum": [
+                                            "DISABLED",
+                                            "SSE-KMS",
+                                            "SSE-S3"
+                                        ],
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Name": {
+                    "description": "The name for the new security configuration.",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string",
+                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                }
+            },
+            "required": [
+                "Name",
+                "EncryptionConfiguration"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

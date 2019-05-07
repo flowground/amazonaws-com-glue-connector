@@ -1,0 +1,166 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "CatalogId": {
+                    "description": "The ID of the Data Catalog in which to create the connection. If none is provided, the AWS account ID is used by default.",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string",
+                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                },
+                "ConnectionInput": {
+                    "description": "A <code>ConnectionInput</code> object defining the connection to create.",
+                    "properties": {
+                        "ConnectionProperties": {
+                            "description": "These key-value pairs define parameters for the connection.",
+                            "items": {
+                                "properties": {
+                                    "key": {
+                                        "enum": [
+                                            "HOST",
+                                            "PORT",
+                                            "USERNAME",
+                                            "PASSWORD",
+                                            "ENCRYPTED_PASSWORD",
+                                            "JDBC_DRIVER_JAR_URI",
+                                            "JDBC_DRIVER_CLASS_NAME",
+                                            "JDBC_ENGINE",
+                                            "JDBC_ENGINE_VERSION",
+                                            "CONFIG_FILES",
+                                            "INSTANCE_ID",
+                                            "JDBC_CONNECTION_URL",
+                                            "JDBC_ENFORCE_SSL"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "maxLength": 1024,
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "maxItems": 100,
+                            "minItems": 0,
+                            "type": "array"
+                        },
+                        "ConnectionType": {
+                            "description": "The type of the connection. Currently, only JDBC is supported; SFTP is not supported.",
+                            "enum": [
+                                "JDBC",
+                                "SFTP"
+                            ],
+                            "type": "string"
+                        },
+                        "Description": {
+                            "description": "The description of the connection.",
+                            "maxLength": 2048,
+                            "minLength": 0,
+                            "type": "string",
+                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                        },
+                        "MatchCriteria": {
+                            "description": "A list of criteria that can be used in selecting this connection.",
+                            "items": {
+                                "maxLength": 255,
+                                "minLength": 1,
+                                "type": "string",
+                                "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                            },
+                            "maxItems": 10,
+                            "minItems": 0,
+                            "type": "array"
+                        },
+                        "Name": {
+                            "description": "The name of the connection.",
+                            "maxLength": 255,
+                            "minLength": 1,
+                            "type": "string",
+                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                        },
+                        "PhysicalConnectionRequirements": {
+                            "description": "A map of physical connection requirements, such as virtual private cloud (VPC) and <code>SecurityGroup</code>, that are needed to successfully make this connection.",
+                            "properties": {
+                                "AvailabilityZone": {
+                                    "description": "The connection's Availability Zone. This field is redundant because the specified subnet implies the Availability Zone to be used. Currently the field must be populated, but it will be deprecated in the future.",
+                                    "maxLength": 255,
+                                    "minLength": 1,
+                                    "type": "string",
+                                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                },
+                                "SecurityGroupIdList": {
+                                    "description": "The security group ID list used by the connection.",
+                                    "items": {
+                                        "maxLength": 255,
+                                        "minLength": 1,
+                                        "type": "string",
+                                        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                    },
+                                    "maxItems": 50,
+                                    "minItems": 0,
+                                    "type": "array"
+                                },
+                                "SubnetId": {
+                                    "description": "The subnet ID used by the connection.",
+                                    "maxLength": 255,
+                                    "minLength": 1,
+                                    "type": "string",
+                                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "Name",
+                        "ConnectionType",
+                        "ConnectionProperties"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "ConnectionInput"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

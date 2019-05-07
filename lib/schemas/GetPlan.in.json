@@ -1,0 +1,234 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Language": {
+                    "description": "The programming language of the code to perform the mapping.",
+                    "enum": [
+                        "PYTHON",
+                        "SCALA"
+                    ],
+                    "type": "string"
+                },
+                "Location": {
+                    "description": "Parameters for the mapping.",
+                    "properties": {
+                        "DynamoDB": {
+                            "description": "A DynamoDB Table location.",
+                            "items": {
+                                "description": "An argument or property of a node.",
+                                "properties": {
+                                    "Name": {
+                                        "description": "The name of the argument or property.",
+                                        "type": "string"
+                                    },
+                                    "Param": {
+                                        "description": "True if the value is used as a parameter.",
+                                        "type": "boolean"
+                                    },
+                                    "Value": {
+                                        "description": "The value of the argument or property.",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "Name",
+                                    "Value"
+                                ],
+                                "type": "object"
+                            },
+                            "maxItems": 50,
+                            "minItems": 0,
+                            "type": "array"
+                        },
+                        "Jdbc": {
+                            "description": "A JDBC location.",
+                            "items": {
+                                "description": "An argument or property of a node.",
+                                "properties": {
+                                    "Name": {
+                                        "description": "The name of the argument or property.",
+                                        "type": "string"
+                                    },
+                                    "Param": {
+                                        "description": "True if the value is used as a parameter.",
+                                        "type": "boolean"
+                                    },
+                                    "Value": {
+                                        "description": "The value of the argument or property.",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "Name",
+                                    "Value"
+                                ],
+                                "type": "object"
+                            },
+                            "maxItems": 50,
+                            "minItems": 0,
+                            "type": "array"
+                        },
+                        "S3": {
+                            "description": "An Amazon S3 location.",
+                            "items": {
+                                "description": "An argument or property of a node.",
+                                "properties": {
+                                    "Name": {
+                                        "description": "The name of the argument or property.",
+                                        "type": "string"
+                                    },
+                                    "Param": {
+                                        "description": "True if the value is used as a parameter.",
+                                        "type": "boolean"
+                                    },
+                                    "Value": {
+                                        "description": "The value of the argument or property.",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "Name",
+                                    "Value"
+                                ],
+                                "type": "object"
+                            },
+                            "maxItems": 50,
+                            "minItems": 0,
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Mapping": {
+                    "description": "The list of mappings from a source table to target tables.",
+                    "items": {
+                        "description": "Defines a mapping.",
+                        "properties": {
+                            "SourcePath": {
+                                "description": "The source path.",
+                                "type": "string"
+                            },
+                            "SourceTable": {
+                                "description": "The name of the source table.",
+                                "type": "string"
+                            },
+                            "SourceType": {
+                                "description": "The source type.",
+                                "type": "string"
+                            },
+                            "TargetPath": {
+                                "description": "The target path.",
+                                "type": "string"
+                            },
+                            "TargetTable": {
+                                "description": "The target table.",
+                                "type": "string"
+                            },
+                            "TargetType": {
+                                "description": "The target type.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "Sinks": {
+                    "description": "The target tables.",
+                    "items": {
+                        "description": "Specifies a table definition in the Data Catalog.",
+                        "properties": {
+                            "DatabaseName": {
+                                "description": "The database in which the table metadata resides.",
+                                "maxLength": 255,
+                                "minLength": 1,
+                                "type": "string",
+                                "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                            },
+                            "TableName": {
+                                "description": "The name of the table in question.",
+                                "maxLength": 255,
+                                "minLength": 1,
+                                "type": "string",
+                                "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                            }
+                        },
+                        "required": [
+                            "DatabaseName",
+                            "TableName"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "Source": {
+                    "description": "The source table.",
+                    "properties": {
+                        "DatabaseName": {
+                            "description": "The database in which the table metadata resides.",
+                            "maxLength": 255,
+                            "minLength": 1,
+                            "type": "string",
+                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                        },
+                        "TableName": {
+                            "description": "The name of the table in question.",
+                            "maxLength": 255,
+                            "minLength": 1,
+                            "type": "string",
+                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                        }
+                    },
+                    "required": [
+                        "DatabaseName",
+                        "TableName"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "Mapping",
+                "Source"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

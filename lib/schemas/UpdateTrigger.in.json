@@ -1,0 +1,187 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Name": {
+                    "description": "The name of the trigger to update.",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string",
+                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                },
+                "TriggerUpdate": {
+                    "description": "The new values with which to update the trigger.",
+                    "properties": {
+                        "Actions": {
+                            "description": "The actions initiated by this trigger.",
+                            "items": {
+                                "description": "Defines an action to be initiated by a trigger.",
+                                "properties": {
+                                    "Arguments": {
+                                        "description": "<p>The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.</p> <p>For information about how to specify and consume your own Job arguments, see the <a href=\"http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html\">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href=\"http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>",
+                                        "items": {
+                                            "properties": {
+                                                "key": {
+                                                    "type": "string"
+                                                },
+                                                "value": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "JobName": {
+                                        "description": "The name of a job to be executed.",
+                                        "maxLength": 255,
+                                        "minLength": 1,
+                                        "type": "string",
+                                        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                    },
+                                    "NotificationProperty": {
+                                        "description": "Specifies configuration properties of a job run notification.",
+                                        "properties": {
+                                            "NotifyDelayAfter": {
+                                                "description": "After a job run starts, the number of minutes to wait before sending a job run delay notification.",
+                                                "minimum": 1,
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "SecurityConfiguration": {
+                                        "description": "The name of the SecurityConfiguration structure to be used with this action.",
+                                        "maxLength": 255,
+                                        "minLength": 1,
+                                        "type": "string",
+                                        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                    },
+                                    "Timeout": {
+                                        "description": "The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.",
+                                        "minimum": 1,
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "Description": {
+                            "description": "A description of this trigger.",
+                            "maxLength": 2048,
+                            "minLength": 0,
+                            "type": "string",
+                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                        },
+                        "Name": {
+                            "description": "Reserved for future use.",
+                            "maxLength": 255,
+                            "minLength": 1,
+                            "type": "string",
+                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                        },
+                        "Predicate": {
+                            "description": "The predicate of this trigger, which defines when it will fire.",
+                            "properties": {
+                                "Conditions": {
+                                    "description": "A list of the conditions that determine when the trigger will fire.",
+                                    "items": {
+                                        "description": "Defines a condition under which a trigger fires.",
+                                        "properties": {
+                                            "JobName": {
+                                                "description": "The name of the Job to whose JobRuns this condition applies and on which this trigger waits.",
+                                                "maxLength": 255,
+                                                "minLength": 1,
+                                                "type": "string",
+                                                "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+                                            },
+                                            "LogicalOperator": {
+                                                "description": "A logical operator.",
+                                                "enum": [
+                                                    "EQUALS"
+                                                ],
+                                                "type": "string"
+                                            },
+                                            "State": {
+                                                "description": "The condition state. Currently, the values supported are SUCCEEDED, STOPPED, TIMEOUT and FAILED.",
+                                                "enum": [
+                                                    "STARTING",
+                                                    "RUNNING",
+                                                    "STOPPING",
+                                                    "STOPPED",
+                                                    "SUCCEEDED",
+                                                    "FAILED",
+                                                    "TIMEOUT"
+                                                ],
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "Logical": {
+                                    "description": "Optional field if only one condition is listed. If multiple conditions are listed, then this field is required.",
+                                    "enum": [
+                                        "AND",
+                                        "ANY"
+                                    ],
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "Schedule": {
+                            "description": "A <code>cron</code> expression used to specify the schedule (see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "Name",
+                "TriggerUpdate"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
