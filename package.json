@@ -1,7 +1,7 @@
 {
     "name": "amazonaws-com-glue-connector",
     "version": "2017.0.0",
-    "description": "<fullname>AWS Glue</fullname> <p>Defines the public endpoint for the AWS Glue service.</p>",
+    "description": "AWS Glue Defines the public endpoint for the AWS Glue service.",
     "main": "component.json",
     "dependencies": {
         "elasticio-node": "0.0.9",

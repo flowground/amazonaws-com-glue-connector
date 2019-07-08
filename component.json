@@ -1,6 +1,6 @@
 {
     "title": "AWS Glue",
-    "description": "<fullname>AWS Glue</fullname> <p>Defines the public endpoint for the AWS Glue service.</p>",
+    "description": "AWS Glue Defines the public endpoint for the AWS Glue service.",
     "docsUrl": "https://aws.amazon.com/glue/",
     "url": "https://api.apis.guru/v2/specs/amazonaws.com/glue/2017-03-31/swagger.json",
     "envVars": {},
@@ -20,7 +20,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "hmac": {
+            "auth_hmac": {
                 "label": "Authorization (hmac)",
                 "viewClass": "TextFieldView",
                 "note": "Amazon Signature authorization v4"
@@ -38,7 +38,7 @@
     "actions": {
         "BatchCreatePartition": {
             "main": "./lib/actions/BatchCreatePartition.js",
-            "title": "Creates one or more partitions in a batch operation.",
+            "title": "BatchCreatePartition",
             "description": "Creates one or more partitions in a batch operation.",
             "fields": {
                 "verbose": {
@@ -55,7 +55,7 @@
         },
         "BatchDeleteConnection": {
             "main": "./lib/actions/BatchDeleteConnection.js",
-            "title": "Deletes a list of connection definitions from the Data Catalog.",
+            "title": "BatchDeleteConnection",
             "description": "Deletes a list of connection definitions from the Data Catalog.",
             "fields": {
                 "verbose": {
@@ -72,7 +72,7 @@
         },
         "BatchDeletePartition": {
             "main": "./lib/actions/BatchDeletePartition.js",
-            "title": "Deletes one or more partitions in a batch operation.",
+            "title": "BatchDeletePartition",
             "description": "Deletes one or more partitions in a batch operation.",
             "fields": {
                 "verbose": {
@@ -89,8 +89,8 @@
         },
         "BatchDeleteTable": {
             "main": "./lib/actions/BatchDeleteTable.js",
-            "title": "<p>Deletes multiple tables at once.</p> <note> <p>After completing this operation, you will no longer have access to the table versions and partitions that belong to the deleted table. AWS Glue deletes these \"orphaned\" resources asynchronously in a timely manner, at the discretion of the service.</p> <p>To ensure immediate deletion of all related resources, before calling <code>BatchDeleteTable</code>, use <code>DeleteTableVersion</code> or <code>BatchDeleteTableVersion</code>, and <code>DeletePartition</code> or <code>BatchDeletePartition</code>, to delete any resources that belong to the table.</p> </note>",
-            "description": "<p>Deletes multiple tables at once.</p> <note> <p>After completing this operation, you will no longer have access to the table versions and partitions that belong to the deleted table. AWS Glue deletes these \"orphaned\" resources asynchronously in a timely manner, at the discretion of the service.</p> <p>To ensure immediate deletion of all related resources, before calling <code>BatchDeleteTable</code>, use <code>DeleteTableVersion</code> or <code>BatchDeleteTableVersion</code>, and <code>DeletePartition</code> or <code>BatchDeletePartition</code>, to delete any resources that belong to the table.</p> </note>",
+            "title": "BatchDeleteTable",
+            "description": "Deletes multiple tables at once.\n\nAfter completing this operation, you will no longer have access to the table\nversions and partitions that belong to the deleted table. AWS Glue deletes these\n\"orphaned\" resources asynchronously in a timely manner, at the discretion of the\nservice.\n\nTo ensure immediate deletion of all related resources, before calling \nBatchDeleteTable, use DeleteTableVersion or BatchDeleteTableVersion, and \nDeletePartition or BatchDeletePartition, to delete any resources that belong to\nthe table.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -106,7 +106,7 @@
         },
         "BatchDeleteTableVersion": {
             "main": "./lib/actions/BatchDeleteTableVersion.js",
-            "title": "Deletes a specified batch of versions of a table.",
+            "title": "BatchDeleteTableVersion",
             "description": "Deletes a specified batch of versions of a table.",
             "fields": {
                 "verbose": {
@@ -123,7 +123,7 @@
         },
         "BatchGetCrawlers": {
             "main": "./lib/actions/BatchGetCrawlers.js",
-            "title": "Returns a list of resource metadata for a given list of crawler names. After calling the <code>ListCrawlers</code> operation, you can call this operation to access the data to which you have been granted permissions to based on tags.",
+            "title": "BatchGetCrawlers",
             "description": "Returns a list of resource metadata for a given list of crawler names. After calling the <code>ListCrawlers</code> operation, you can call this operation to access the data to which you have been granted permissions to based on tags.",
             "fields": {
                 "verbose": {
@@ -140,7 +140,7 @@
         },
         "BatchGetDevEndpoints": {
             "main": "./lib/actions/BatchGetDevEndpoints.js",
-            "title": "Returns a list of resource metadata for a given list of DevEndpoint names. After calling the <code>ListDevEndpoints</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.",
+            "title": "BatchGetDevEndpoints",
             "description": "Returns a list of resource metadata for a given list of DevEndpoint names. After calling the <code>ListDevEndpoints</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.",
             "fields": {
                 "verbose": {
@@ -157,7 +157,7 @@
         },
         "BatchGetJobs": {
             "main": "./lib/actions/BatchGetJobs.js",
-            "title": "Returns a list of resource metadata for a given list of job names. After calling the <code>ListJobs</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags. ",
+            "title": "BatchGetJobs",
             "description": "Returns a list of resource metadata for a given list of job names. After calling the <code>ListJobs</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags. ",
             "fields": {
                 "verbose": {
@@ -174,7 +174,7 @@
         },
         "BatchGetPartition": {
             "main": "./lib/actions/BatchGetPartition.js",
-            "title": "Retrieves partitions in a batch request.",
+            "title": "BatchGetPartition",
             "description": "Retrieves partitions in a batch request.",
             "fields": {
                 "verbose": {
@@ -191,7 +191,7 @@
         },
         "BatchGetTriggers": {
             "main": "./lib/actions/BatchGetTriggers.js",
-            "title": "Returns a list of resource metadata for a given list of trigger names. After calling the <code>ListTriggers</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.",
+            "title": "BatchGetTriggers",
             "description": "Returns a list of resource metadata for a given list of trigger names. After calling the <code>ListTriggers</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.",
             "fields": {
                 "verbose": {
@@ -208,7 +208,7 @@
         },
         "BatchStopJobRun": {
             "main": "./lib/actions/BatchStopJobRun.js",
-            "title": "Stops one or more job runs for a specified job definition.",
+            "title": "BatchStopJobRun",
             "description": "Stops one or more job runs for a specified job definition.",
             "fields": {
                 "verbose": {
@@ -225,7 +225,7 @@
         },
         "CreateClassifier": {
             "main": "./lib/actions/CreateClassifier.js",
-            "title": "Creates a classifier in the user's account. This may be a <code>GrokClassifier</code>, an <code>XMLClassifier</code>, or abbrev <code>JsonClassifier</code>, depending on which field of the request is present.",
+            "title": "CreateClassifier",
             "description": "Creates a classifier in the user's account. This may be a <code>GrokClassifier</code>, an <code>XMLClassifier</code>, or abbrev <code>JsonClassifier</code>, depending on which field of the request is present.",
             "fields": {
                 "verbose": {
@@ -242,7 +242,7 @@
         },
         "CreateConnection": {
             "main": "./lib/actions/CreateConnection.js",
-            "title": "Creates a connection definition in the Data Catalog.",
+            "title": "CreateConnection",
             "description": "Creates a connection definition in the Data Catalog.",
             "fields": {
                 "verbose": {
@@ -259,7 +259,7 @@
         },
         "CreateCrawler": {
             "main": "./lib/actions/CreateCrawler.js",
-            "title": "Creates a new crawler with specified targets, role, configuration, and optional schedule. At least one crawl target must be specified, in the <i>s3Targets</i> field, the <i>jdbcTargets</i> field, or the <i>DynamoDBTargets</i> field.",
+            "title": "CreateCrawler",
             "description": "Creates a new crawler with specified targets, role, configuration, and optional schedule. At least one crawl target must be specified, in the <i>s3Targets</i> field, the <i>jdbcTargets</i> field, or the <i>DynamoDBTargets</i> field.",
             "fields": {
                 "verbose": {
@@ -276,7 +276,7 @@
         },
         "CreateDatabase": {
             "main": "./lib/actions/CreateDatabase.js",
-            "title": "Creates a new database in a Data Catalog.",
+            "title": "CreateDatabase",
             "description": "Creates a new database in a Data Catalog.",
             "fields": {
                 "verbose": {
@@ -293,7 +293,7 @@
         },
         "CreateDevEndpoint": {
             "main": "./lib/actions/CreateDevEndpoint.js",
-            "title": "Creates a new DevEndpoint.",
+            "title": "CreateDevEndpoint",
             "description": "Creates a new DevEndpoint.",
             "fields": {
                 "verbose": {
@@ -310,7 +310,7 @@
         },
         "CreateJob": {
             "main": "./lib/actions/CreateJob.js",
-            "title": "Creates a new job definition.",
+            "title": "CreateJob",
             "description": "Creates a new job definition.",
             "fields": {
                 "verbose": {
@@ -327,7 +327,7 @@
         },
         "CreatePartition": {
             "main": "./lib/actions/CreatePartition.js",
-            "title": "Creates a new partition.",
+            "title": "CreatePartition",
             "description": "Creates a new partition.",
             "fields": {
                 "verbose": {
@@ -344,7 +344,7 @@
         },
         "CreateScript": {
             "main": "./lib/actions/CreateScript.js",
-            "title": "Transforms a directed acyclic graph (DAG) into code.",
+            "title": "CreateScript",
             "description": "Transforms a directed acyclic graph (DAG) into code.",
             "fields": {
                 "verbose": {
@@ -361,7 +361,7 @@
         },
         "CreateSecurityConfiguration": {
             "main": "./lib/actions/CreateSecurityConfiguration.js",
-            "title": "Creates a new security configuration.",
+            "title": "CreateSecurityConfiguration",
             "description": "Creates a new security configuration.",
             "fields": {
                 "verbose": {
@@ -378,7 +378,7 @@
         },
         "CreateTable": {
             "main": "./lib/actions/CreateTable.js",
-            "title": "Creates a new table definition in the Data Catalog.",
+            "title": "CreateTable",
             "description": "Creates a new table definition in the Data Catalog.",
             "fields": {
                 "verbose": {
@@ -395,7 +395,7 @@
         },
         "CreateTrigger": {
             "main": "./lib/actions/CreateTrigger.js",
-            "title": "Creates a new trigger.",
+            "title": "CreateTrigger",
             "description": "Creates a new trigger.",
             "fields": {
                 "verbose": {
@@ -412,7 +412,7 @@
         },
         "CreateUserDefinedFunction": {
             "main": "./lib/actions/CreateUserDefinedFunction.js",
-            "title": "Creates a new function definition in the Data Catalog.",
+            "title": "CreateUserDefinedFunction",
             "description": "Creates a new function definition in the Data Catalog.",
             "fields": {
                 "verbose": {
@@ -429,7 +429,7 @@
         },
         "DeleteClassifier": {
             "main": "./lib/actions/DeleteClassifier.js",
-            "title": "Removes a classifier from the Data Catalog.",
+            "title": "DeleteClassifier",
             "description": "Removes a classifier from the Data Catalog.",
             "fields": {
                 "verbose": {
@@ -446,7 +446,7 @@
         },
         "DeleteConnection": {
             "main": "./lib/actions/DeleteConnection.js",
-            "title": "Deletes a connection from the Data Catalog.",
+            "title": "DeleteConnection",
             "description": "Deletes a connection from the Data Catalog.",
             "fields": {
                 "verbose": {
@@ -463,7 +463,7 @@
         },
         "DeleteCrawler": {
             "main": "./lib/actions/DeleteCrawler.js",
-            "title": "Removes a specified crawler from the Data Catalog, unless the crawler state is <code>RUNNING</code>.",
+            "title": "DeleteCrawler",
             "description": "Removes a specified crawler from the Data Catalog, unless the crawler state is <code>RUNNING</code>.",
             "fields": {
                 "verbose": {
@@ -480,8 +480,8 @@
         },
         "DeleteDatabase": {
             "main": "./lib/actions/DeleteDatabase.js",
-            "title": "<p>Removes a specified Database from a Data Catalog.</p> <note> <p>After completing this operation, you will no longer have access to the tables (and all table versions and partitions that might belong to the tables) and the user-defined functions in the deleted database. AWS Glue deletes these \"orphaned\" resources asynchronously in a timely manner, at the discretion of the service.</p> <p>To ensure immediate deletion of all related resources, before calling <code>DeleteDatabase</code>, use <code>DeleteTableVersion</code> or <code>BatchDeleteTableVersion</code>, <code>DeletePartition</code> or <code>BatchDeletePartition</code>, <code>DeleteUserDefinedFunction</code>, and <code>DeleteTable</code> or <code>BatchDeleteTable</code>, to delete any resources that belong to the database.</p> </note>",
-            "description": "<p>Removes a specified Database from a Data Catalog.</p> <note> <p>After completing this operation, you will no longer have access to the tables (and all table versions and partitions that might belong to the tables) and the user-defined functions in the deleted database. AWS Glue deletes these \"orphaned\" resources asynchronously in a timely manner, at the discretion of the service.</p> <p>To ensure immediate deletion of all related resources, before calling <code>DeleteDatabase</code>, use <code>DeleteTableVersion</code> or <code>BatchDeleteTableVersion</code>, <code>DeletePartition</code> or <code>BatchDeletePartition</code>, <code>DeleteUserDefinedFunction</code>, and <code>DeleteTable</code> or <code>BatchDeleteTable</code>, to delete any resources that belong to the database.</p> </note>",
+            "title": "DeleteDatabase",
+            "description": "Removes a specified Database from a Data Catalog.\n\nAfter completing this operation, you will no longer have access to the tables\n(and all table versions and partitions that might belong to the tables) and the\nuser-defined functions in the deleted database. AWS Glue deletes these\n\"orphaned\" resources asynchronously in a timely manner, at the discretion of the\nservice.\n\nTo ensure immediate deletion of all related resources, before calling \nDeleteDatabase, use DeleteTableVersion or BatchDeleteTableVersion, \nDeletePartition or BatchDeletePartition, DeleteUserDefinedFunction, and \nDeleteTable or BatchDeleteTable, to delete any resources that belong to the\ndatabase.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -497,7 +497,7 @@
         },
         "DeleteDevEndpoint": {
             "main": "./lib/actions/DeleteDevEndpoint.js",
-            "title": "Deletes a specified DevEndpoint.",
+            "title": "DeleteDevEndpoint",
             "description": "Deletes a specified DevEndpoint.",
             "fields": {
                 "verbose": {
@@ -514,7 +514,7 @@
         },
         "DeleteJob": {
             "main": "./lib/actions/DeleteJob.js",
-            "title": "Deletes a specified job definition. If the job definition is not found, no exception is thrown.",
+            "title": "DeleteJob",
             "description": "Deletes a specified job definition. If the job definition is not found, no exception is thrown.",
             "fields": {
                 "verbose": {
@@ -531,7 +531,7 @@
         },
         "DeletePartition": {
             "main": "./lib/actions/DeletePartition.js",
-            "title": "Deletes a specified partition.",
+            "title": "DeletePartition",
             "description": "Deletes a specified partition.",
             "fields": {
                 "verbose": {
@@ -548,7 +548,7 @@
         },
         "DeleteResourcePolicy": {
             "main": "./lib/actions/DeleteResourcePolicy.js",
-            "title": "Deletes a specified policy.",
+            "title": "DeleteResourcePolicy",
             "description": "Deletes a specified policy.",
             "fields": {
                 "verbose": {
@@ -565,7 +565,7 @@
         },
         "DeleteSecurityConfiguration": {
             "main": "./lib/actions/DeleteSecurityConfiguration.js",
-            "title": "Deletes a specified security configuration.",
+            "title": "DeleteSecurityConfiguration",
             "description": "Deletes a specified security configuration.",
             "fields": {
                 "verbose": {
@@ -582,8 +582,8 @@
         },
         "DeleteTable": {
             "main": "./lib/actions/DeleteTable.js",
-            "title": "<p>Removes a table definition from the Data Catalog.</p> <note> <p>After completing this operation, you will no longer have access to the table versions and partitions that belong to the deleted table. AWS Glue deletes these \"orphaned\" resources asynchronously in a timely manner, at the discretion of the service.</p> <p>To ensure immediate deletion of all related resources, before calling <code>DeleteTable</code>, use <code>DeleteTableVersion</code> or <code>BatchDeleteTableVersion</code>, and <code>DeletePartition</code> or <code>BatchDeletePartition</code>, to delete any resources that belong to the table.</p> </note>",
-            "description": "<p>Removes a table definition from the Data Catalog.</p> <note> <p>After completing this operation, you will no longer have access to the table versions and partitions that belong to the deleted table. AWS Glue deletes these \"orphaned\" resources asynchronously in a timely manner, at the discretion of the service.</p> <p>To ensure immediate deletion of all related resources, before calling <code>DeleteTable</code>, use <code>DeleteTableVersion</code> or <code>BatchDeleteTableVersion</code>, and <code>DeletePartition</code> or <code>BatchDeletePartition</code>, to delete any resources that belong to the table.</p> </note>",
+            "title": "DeleteTable",
+            "description": "Removes a table definition from the Data Catalog.\n\nAfter completing this operation, you will no longer have access to the table\nversions and partitions that belong to the deleted table. AWS Glue deletes these\n\"orphaned\" resources asynchronously in a timely manner, at the discretion of the\nservice.\n\nTo ensure immediate deletion of all related resources, before calling \nDeleteTable, use DeleteTableVersion or BatchDeleteTableVersion, and \nDeletePartition or BatchDeletePartition, to delete any resources that belong to\nthe table.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -599,7 +599,7 @@
         },
         "DeleteTableVersion": {
             "main": "./lib/actions/DeleteTableVersion.js",
-            "title": "Deletes a specified version of a table.",
+            "title": "DeleteTableVersion",
             "description": "Deletes a specified version of a table.",
             "fields": {
                 "verbose": {
@@ -616,7 +616,7 @@
         },
         "DeleteTrigger": {
             "main": "./lib/actions/DeleteTrigger.js",
-            "title": "Deletes a specified trigger. If the trigger is not found, no exception is thrown.",
+            "title": "DeleteTrigger",
             "description": "Deletes a specified trigger. If the trigger is not found, no exception is thrown.",
             "fields": {
                 "verbose": {
@@ -633,7 +633,7 @@
         },
         "DeleteUserDefinedFunction": {
             "main": "./lib/actions/DeleteUserDefinedFunction.js",
-            "title": "Deletes an existing function definition from the Data Catalog.",
+            "title": "DeleteUserDefinedFunction",
             "description": "Deletes an existing function definition from the Data Catalog.",
             "fields": {
                 "verbose": {
@@ -650,7 +650,7 @@
         },
         "GetCatalogImportStatus": {
             "main": "./lib/actions/GetCatalogImportStatus.js",
-            "title": "Retrieves the status of a migration operation.",
+            "title": "GetCatalogImportStatus",
             "description": "Retrieves the status of a migration operation.",
             "fields": {
                 "verbose": {
@@ -667,7 +667,7 @@
         },
         "GetClassifier": {
             "main": "./lib/actions/GetClassifier.js",
-            "title": "Retrieve a classifier by name.",
+            "title": "GetClassifier",
             "description": "Retrieve a classifier by name.",
             "fields": {
                 "verbose": {
@@ -684,7 +684,7 @@
         },
         "GetClassifiers": {
             "main": "./lib/actions/GetClassifiers.js",
-            "title": "Lists all classifier objects in the Data Catalog.",
+            "title": "GetClassifiers",
             "description": "Lists all classifier objects in the Data Catalog.",
             "fields": {
                 "verbose": {
@@ -701,7 +701,7 @@
         },
         "GetConnection": {
             "main": "./lib/actions/GetConnection.js",
-            "title": "Retrieves a connection definition from the Data Catalog.",
+            "title": "GetConnection",
             "description": "Retrieves a connection definition from the Data Catalog.",
             "fields": {
                 "verbose": {
@@ -718,7 +718,7 @@
         },
         "GetConnections": {
             "main": "./lib/actions/GetConnections.js",
-            "title": "Retrieves a list of connection definitions from the Data Catalog.",
+            "title": "GetConnections",
             "description": "Retrieves a list of connection definitions from the Data Catalog.",
             "fields": {
                 "verbose": {
@@ -735,7 +735,7 @@
         },
         "GetCrawler": {
             "main": "./lib/actions/GetCrawler.js",
-            "title": "Retrieves metadata for a specified crawler.",
+            "title": "GetCrawler",
             "description": "Retrieves metadata for a specified crawler.",
             "fields": {
                 "verbose": {
@@ -752,7 +752,7 @@
         },
         "GetCrawlerMetrics": {
             "main": "./lib/actions/GetCrawlerMetrics.js",
-            "title": "Retrieves metrics about specified crawlers.",
+            "title": "GetCrawlerMetrics",
             "description": "Retrieves metrics about specified crawlers.",
             "fields": {
                 "verbose": {
@@ -769,7 +769,7 @@
         },
         "GetCrawlers": {
             "main": "./lib/actions/GetCrawlers.js",
-            "title": "Retrieves metadata for all crawlers defined in the customer account.",
+            "title": "GetCrawlers",
             "description": "Retrieves metadata for all crawlers defined in the customer account.",
             "fields": {
                 "verbose": {
@@ -786,7 +786,7 @@
         },
         "GetDataCatalogEncryptionSettings": {
             "main": "./lib/actions/GetDataCatalogEncryptionSettings.js",
-            "title": "Retrieves the security configuration for a specified catalog.",
+            "title": "GetDataCatalogEncryptionSettings",
             "description": "Retrieves the security configuration for a specified catalog.",
             "fields": {
                 "verbose": {
@@ -803,7 +803,7 @@
         },
         "GetDatabase": {
             "main": "./lib/actions/GetDatabase.js",
-            "title": "Retrieves the definition of a specified database.",
+            "title": "GetDatabase",
             "description": "Retrieves the definition of a specified database.",
             "fields": {
                 "verbose": {
@@ -820,7 +820,7 @@
         },
         "GetDatabases": {
             "main": "./lib/actions/GetDatabases.js",
-            "title": "Retrieves all Databases defined in a given Data Catalog.",
+            "title": "GetDatabases",
             "description": "Retrieves all Databases defined in a given Data Catalog.",
             "fields": {
                 "verbose": {
@@ -837,7 +837,7 @@
         },
         "GetDataflowGraph": {
             "main": "./lib/actions/GetDataflowGraph.js",
-            "title": "Transforms a Python script into a directed acyclic graph (DAG). ",
+            "title": "GetDataflowGraph",
             "description": "Transforms a Python script into a directed acyclic graph (DAG). ",
             "fields": {
                 "verbose": {
@@ -854,8 +854,8 @@
         },
         "GetDevEndpoint": {
             "main": "./lib/actions/GetDevEndpoint.js",
-            "title": "<p>Retrieves information about a specified DevEndpoint.</p> <note> <p>When you create a development endpoint in a virtual private cloud (VPC), AWS Glue returns only a private IP address, and the public IP address field is not populated. When you create a non-VPC development endpoint, AWS Glue returns only a public IP address.</p> </note>",
-            "description": "<p>Retrieves information about a specified DevEndpoint.</p> <note> <p>When you create a development endpoint in a virtual private cloud (VPC), AWS Glue returns only a private IP address, and the public IP address field is not populated. When you create a non-VPC development endpoint, AWS Glue returns only a public IP address.</p> </note>",
+            "title": "GetDevEndpoint",
+            "description": "Retrieves information about a specified DevEndpoint.\n\nWhen you create a development endpoint in a virtual private cloud (VPC), AWS\nGlue returns only a private IP address, and the public IP address field is not\npopulated. When you create a non-VPC development endpoint, AWS Glue returns only\na public IP address.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -871,8 +871,8 @@
         },
         "GetDevEndpoints": {
             "main": "./lib/actions/GetDevEndpoints.js",
-            "title": "<p>Retrieves all the DevEndpoints in this AWS account.</p> <note> <p>When you create a development endpoint in a virtual private cloud (VPC), AWS Glue returns only a private IP address and the public IP address field is not populated. When you create a non-VPC development endpoint, AWS Glue returns only a public IP address.</p> </note>",
-            "description": "<p>Retrieves all the DevEndpoints in this AWS account.</p> <note> <p>When you create a development endpoint in a virtual private cloud (VPC), AWS Glue returns only a private IP address and the public IP address field is not populated. When you create a non-VPC development endpoint, AWS Glue returns only a public IP address.</p> </note>",
+            "title": "GetDevEndpoints",
+            "description": "Retrieves all the DevEndpoints in this AWS account.\n\nWhen you create a development endpoint in a virtual private cloud (VPC), AWS\nGlue returns only a private IP address and the public IP address field is not\npopulated. When you create a non-VPC development endpoint, AWS Glue returns only\na public IP address.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -888,7 +888,7 @@
         },
         "GetJob": {
             "main": "./lib/actions/GetJob.js",
-            "title": "Retrieves an existing job definition.",
+            "title": "GetJob",
             "description": "Retrieves an existing job definition.",
             "fields": {
                 "verbose": {
@@ -905,7 +905,7 @@
         },
         "GetJobRun": {
             "main": "./lib/actions/GetJobRun.js",
-            "title": "Retrieves the metadata for a given job run.",
+            "title": "GetJobRun",
             "description": "Retrieves the metadata for a given job run.",
             "fields": {
                 "verbose": {
@@ -922,7 +922,7 @@
         },
         "GetJobRuns": {
             "main": "./lib/actions/GetJobRuns.js",
-            "title": "Retrieves metadata for all runs of a given job definition.",
+            "title": "GetJobRuns",
             "description": "Retrieves metadata for all runs of a given job definition.",
             "fields": {
                 "verbose": {
@@ -939,7 +939,7 @@
         },
         "GetJobs": {
             "main": "./lib/actions/GetJobs.js",
-            "title": "Retrieves all current job definitions.",
+            "title": "GetJobs",
             "description": "Retrieves all current job definitions.",
             "fields": {
                 "verbose": {
@@ -956,7 +956,7 @@
         },
         "GetMapping": {
             "main": "./lib/actions/GetMapping.js",
-            "title": "Creates mappings.",
+            "title": "GetMapping",
             "description": "Creates mappings.",
             "fields": {
                 "verbose": {
@@ -973,7 +973,7 @@
         },
         "GetPartition": {
             "main": "./lib/actions/GetPartition.js",
-            "title": "Retrieves information about a specified partition.",
+            "title": "GetPartition",
             "description": "Retrieves information about a specified partition.",
             "fields": {
                 "verbose": {
@@ -990,7 +990,7 @@
         },
         "GetPartitions": {
             "main": "./lib/actions/GetPartitions.js",
-            "title": "Retrieves information about the partitions in a table.",
+            "title": "GetPartitions",
             "description": "Retrieves information about the partitions in a table.",
             "fields": {
                 "verbose": {
@@ -1007,7 +1007,7 @@
         },
         "GetPlan": {
             "main": "./lib/actions/GetPlan.js",
-            "title": "Gets code to perform a specified mapping.",
+            "title": "GetPlan",
             "description": "Gets code to perform a specified mapping.",
             "fields": {
                 "verbose": {
@@ -1024,7 +1024,7 @@
         },
         "GetResourcePolicy": {
             "main": "./lib/actions/GetResourcePolicy.js",
-            "title": "Retrieves a specified resource policy.",
+            "title": "GetResourcePolicy",
             "description": "Retrieves a specified resource policy.",
             "fields": {
                 "verbose": {
@@ -1041,7 +1041,7 @@
         },
         "GetSecurityConfiguration": {
             "main": "./lib/actions/GetSecurityConfiguration.js",
-            "title": "Retrieves a specified security configuration.",
+            "title": "GetSecurityConfiguration",
             "description": "Retrieves a specified security configuration.",
             "fields": {
                 "verbose": {
@@ -1058,7 +1058,7 @@
         },
         "GetSecurityConfigurations": {
             "main": "./lib/actions/GetSecurityConfigurations.js",
-            "title": "Retrieves a list of all security configurations.",
+            "title": "GetSecurityConfigurations",
             "description": "Retrieves a list of all security configurations.",
             "fields": {
                 "verbose": {
@@ -1075,7 +1075,7 @@
         },
         "GetTable": {
             "main": "./lib/actions/GetTable.js",
-            "title": "Retrieves the <code>Table</code> definition in a Data Catalog for a specified table.",
+            "title": "GetTable",
             "description": "Retrieves the <code>Table</code> definition in a Data Catalog for a specified table.",
             "fields": {
                 "verbose": {
@@ -1092,7 +1092,7 @@
         },
         "GetTableVersion": {
             "main": "./lib/actions/GetTableVersion.js",
-            "title": "Retrieves a specified version of a table.",
+            "title": "GetTableVersion",
             "description": "Retrieves a specified version of a table.",
             "fields": {
                 "verbose": {
@@ -1109,7 +1109,7 @@
         },
         "GetTableVersions": {
             "main": "./lib/actions/GetTableVersions.js",
-            "title": "Retrieves a list of strings that identify available versions of a specified table.",
+            "title": "GetTableVersions",
             "description": "Retrieves a list of strings that identify available versions of a specified table.",
             "fields": {
                 "verbose": {
@@ -1126,7 +1126,7 @@
         },
         "GetTables": {
             "main": "./lib/actions/GetTables.js",
-            "title": "Retrieves the definitions of some or all of the tables in a given <code>Database</code>.",
+            "title": "GetTables",
             "description": "Retrieves the definitions of some or all of the tables in a given <code>Database</code>.",
             "fields": {
                 "verbose": {
@@ -1143,7 +1143,7 @@
         },
         "GetTags": {
             "main": "./lib/actions/GetTags.js",
-            "title": "Retrieves a list of tags associated with a resource.",
+            "title": "GetTags",
             "description": "Retrieves a list of tags associated with a resource.",
             "fields": {
                 "verbose": {
@@ -1160,7 +1160,7 @@
         },
         "GetTrigger": {
             "main": "./lib/actions/GetTrigger.js",
-            "title": "Retrieves the definition of a trigger.",
+            "title": "GetTrigger",
             "description": "Retrieves the definition of a trigger.",
             "fields": {
                 "verbose": {
@@ -1177,7 +1177,7 @@
         },
         "GetTriggers": {
             "main": "./lib/actions/GetTriggers.js",
-            "title": "Gets all the triggers associated with a job.",
+            "title": "GetTriggers",
             "description": "Gets all the triggers associated with a job.",
             "fields": {
                 "verbose": {
@@ -1194,7 +1194,7 @@
         },
         "GetUserDefinedFunction": {
             "main": "./lib/actions/GetUserDefinedFunction.js",
-            "title": "Retrieves a specified function definition from the Data Catalog.",
+            "title": "GetUserDefinedFunction",
             "description": "Retrieves a specified function definition from the Data Catalog.",
             "fields": {
                 "verbose": {
@@ -1211,7 +1211,7 @@
         },
         "GetUserDefinedFunctions": {
             "main": "./lib/actions/GetUserDefinedFunctions.js",
-            "title": "Retrieves a multiple function definitions from the Data Catalog.",
+            "title": "GetUserDefinedFunctions",
             "description": "Retrieves a multiple function definitions from the Data Catalog.",
             "fields": {
                 "verbose": {
@@ -1228,7 +1228,7 @@
         },
         "ImportCatalogToGlue": {
             "main": "./lib/actions/ImportCatalogToGlue.js",
-            "title": "Imports an existing Athena Data Catalog to AWS Glue",
+            "title": "ImportCatalogToGlue",
             "description": "Imports an existing Athena Data Catalog to AWS Glue",
             "fields": {
                 "verbose": {
@@ -1245,8 +1245,8 @@
         },
         "ListCrawlers": {
             "main": "./lib/actions/ListCrawlers.js",
-            "title": "<p>Retrieves the names of all crawler resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p> <p>This operation takes the optional <code>Tags</code> field which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag will be retrieved.</p>",
-            "description": "<p>Retrieves the names of all crawler resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p> <p>This operation takes the optional <code>Tags</code> field which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag will be retrieved.</p>",
+            "title": "ListCrawlers",
+            "description": "Retrieves the names of all crawler resources in this AWS account, or the\nresources with the specified tag. This operation allows you to see which\nresources are available in your account, and their names.\n\nThis operation takes the optional Tags field which you can use as a filter on\nthe response so that tagged resources can be retrieved as a group. If you choose\nto use tags filtering, only resources with the tag will be retrieved.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1262,8 +1262,8 @@
         },
         "ListDevEndpoints": {
             "main": "./lib/actions/ListDevEndpoints.js",
-            "title": "<p>Retrieves the names of all DevEndpoint resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p> <p>This operation takes the optional <code>Tags</code> field which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag will be retrieved.</p>",
-            "description": "<p>Retrieves the names of all DevEndpoint resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p> <p>This operation takes the optional <code>Tags</code> field which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag will be retrieved.</p>",
+            "title": "ListDevEndpoints",
+            "description": "Retrieves the names of all DevEndpoint resources in this AWS account, or the\nresources with the specified tag. This operation allows you to see which\nresources are available in your account, and their names.\n\nThis operation takes the optional Tags field which you can use as a filter on\nthe response so that tagged resources can be retrieved as a group. If you choose\nto use tags filtering, only resources with the tag will be retrieved.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1279,8 +1279,8 @@
         },
         "ListJobs": {
             "main": "./lib/actions/ListJobs.js",
-            "title": "<p>Retrieves the names of all job resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p> <p>This operation takes the optional <code>Tags</code> field which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag will be retrieved.</p>",
-            "description": "<p>Retrieves the names of all job resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p> <p>This operation takes the optional <code>Tags</code> field which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag will be retrieved.</p>",
+            "title": "ListJobs",
+            "description": "Retrieves the names of all job resources in this AWS account, or the resources\nwith the specified tag. This operation allows you to see which resources are\navailable in your account, and their names.\n\nThis operation takes the optional Tags field which you can use as a filter on\nthe response so that tagged resources can be retrieved as a group. If you choose\nto use tags filtering, only resources with the tag will be retrieved.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1296,8 +1296,8 @@
         },
         "ListTriggers": {
             "main": "./lib/actions/ListTriggers.js",
-            "title": "<p>Retrieves the names of all trigger resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p> <p>This operation takes the optional <code>Tags</code> field which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag will be retrieved.</p>",
-            "description": "<p>Retrieves the names of all trigger resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p> <p>This operation takes the optional <code>Tags</code> field which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag will be retrieved.</p>",
+            "title": "ListTriggers",
+            "description": "Retrieves the names of all trigger resources in this AWS account, or the\nresources with the specified tag. This operation allows you to see which\nresources are available in your account, and their names.\n\nThis operation takes the optional Tags field which you can use as a filter on\nthe response so that tagged resources can be retrieved as a group. If you choose\nto use tags filtering, only resources with the tag will be retrieved.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1313,7 +1313,7 @@
         },
         "PutDataCatalogEncryptionSettings": {
             "main": "./lib/actions/PutDataCatalogEncryptionSettings.js",
-            "title": "Sets the security configuration for a specified catalog. After the configuration has been set, the specified encryption is applied to every catalog write thereafter.",
+            "title": "PutDataCatalogEncryptionSettings",
             "description": "Sets the security configuration for a specified catalog. After the configuration has been set, the specified encryption is applied to every catalog write thereafter.",
             "fields": {
                 "verbose": {
@@ -1330,7 +1330,7 @@
         },
         "PutResourcePolicy": {
             "main": "./lib/actions/PutResourcePolicy.js",
-            "title": "Sets the Data Catalog resource policy for access control.",
+            "title": "PutResourcePolicy",
             "description": "Sets the Data Catalog resource policy for access control.",
             "fields": {
                 "verbose": {
@@ -1347,7 +1347,7 @@
         },
         "ResetJobBookmark": {
             "main": "./lib/actions/ResetJobBookmark.js",
-            "title": "Resets a bookmark entry.",
+            "title": "ResetJobBookmark",
             "description": "Resets a bookmark entry.",
             "fields": {
                 "verbose": {
@@ -1364,7 +1364,7 @@
         },
         "StartCrawler": {
             "main": "./lib/actions/StartCrawler.js",
-            "title": "Starts a crawl using the specified crawler, regardless of what is scheduled. If the crawler is already running, returns a <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException\">CrawlerRunningException</a>.",
+            "title": "StartCrawler",
             "description": "Starts a crawl using the specified crawler, regardless of what is scheduled. If the crawler is already running, returns a <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException\">CrawlerRunningException</a>.",
             "fields": {
                 "verbose": {
@@ -1381,7 +1381,7 @@
         },
         "StartCrawlerSchedule": {
             "main": "./lib/actions/StartCrawlerSchedule.js",
-            "title": "Changes the schedule state of the specified crawler to <code>SCHEDULED</code>, unless the crawler is already running or the schedule state is already <code>SCHEDULED</code>.",
+            "title": "StartCrawlerSchedule",
             "description": "Changes the schedule state of the specified crawler to <code>SCHEDULED</code>, unless the crawler is already running or the schedule state is already <code>SCHEDULED</code>.",
             "fields": {
                 "verbose": {
@@ -1398,7 +1398,7 @@
         },
         "StartJobRun": {
             "main": "./lib/actions/StartJobRun.js",
-            "title": "Starts a job run using a job definition.",
+            "title": "StartJobRun",
             "description": "Starts a job run using a job definition.",
             "fields": {
                 "verbose": {
@@ -1415,7 +1415,7 @@
         },
         "StartTrigger": {
             "main": "./lib/actions/StartTrigger.js",
-            "title": "Starts an existing trigger. See <a href=\"http://docs.aws.amazon.com/glue/latest/dg/trigger-job.html\">Triggering Jobs</a> for information about how different types of trigger are started.",
+            "title": "StartTrigger",
             "description": "Starts an existing trigger. See <a href=\"http://docs.aws.amazon.com/glue/latest/dg/trigger-job.html\">Triggering Jobs</a> for information about how different types of trigger are started.",
             "fields": {
                 "verbose": {
@@ -1432,7 +1432,7 @@
         },
         "StopCrawler": {
             "main": "./lib/actions/StopCrawler.js",
-            "title": "If the specified crawler is running, stops the crawl.",
+            "title": "StopCrawler",
             "description": "If the specified crawler is running, stops the crawl.",
             "fields": {
                 "verbose": {
@@ -1449,7 +1449,7 @@
         },
         "StopCrawlerSchedule": {
             "main": "./lib/actions/StopCrawlerSchedule.js",
-            "title": "Sets the schedule state of the specified crawler to <code>NOT_SCHEDULED</code>, but does not stop the crawler if it is already running.",
+            "title": "StopCrawlerSchedule",
             "description": "Sets the schedule state of the specified crawler to <code>NOT_SCHEDULED</code>, but does not stop the crawler if it is already running.",
             "fields": {
                 "verbose": {
@@ -1466,7 +1466,7 @@
         },
         "StopTrigger": {
             "main": "./lib/actions/StopTrigger.js",
-            "title": "Stops a specified trigger.",
+            "title": "StopTrigger",
             "description": "Stops a specified trigger.",
             "fields": {
                 "verbose": {
@@ -1483,7 +1483,7 @@
         },
         "TagResource": {
             "main": "./lib/actions/TagResource.js",
-            "title": "Adds tags to a resource. A tag is a label you can assign to an AWS resource. In AWS Glue, you can tag only certain resources. For information about what resources you can tag, see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">AWS Tags in AWS Glue</a>.",
+            "title": "TagResource",
             "description": "Adds tags to a resource. A tag is a label you can assign to an AWS resource. In AWS Glue, you can tag only certain resources. For information about what resources you can tag, see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">AWS Tags in AWS Glue</a>.",
             "fields": {
                 "verbose": {
@@ -1500,7 +1500,7 @@
         },
         "UntagResource": {
             "main": "./lib/actions/UntagResource.js",
-            "title": "Removes tags from a resource.",
+            "title": "UntagResource",
             "description": "Removes tags from a resource.",
             "fields": {
                 "verbose": {
@@ -1517,7 +1517,7 @@
         },
         "UpdateClassifier": {
             "main": "./lib/actions/UpdateClassifier.js",
-            "title": "Modifies an existing classifier (a <code>GrokClassifier</code>, <code>XMLClassifier</code>, or <code>JsonClassifier</code>, depending on which field is present).",
+            "title": "UpdateClassifier",
             "description": "Modifies an existing classifier (a <code>GrokClassifier</code>, <code>XMLClassifier</code>, or <code>JsonClassifier</code>, depending on which field is present).",
             "fields": {
                 "verbose": {
@@ -1534,7 +1534,7 @@
         },
         "UpdateConnection": {
             "main": "./lib/actions/UpdateConnection.js",
-            "title": "Updates a connection definition in the Data Catalog.",
+            "title": "UpdateConnection",
             "description": "Updates a connection definition in the Data Catalog.",
             "fields": {
                 "verbose": {
@@ -1551,7 +1551,7 @@
         },
         "UpdateCrawler": {
             "main": "./lib/actions/UpdateCrawler.js",
-            "title": "Updates a crawler. If a crawler is running, you must stop it using <code>StopCrawler</code> before updating it.",
+            "title": "UpdateCrawler",
             "description": "Updates a crawler. If a crawler is running, you must stop it using <code>StopCrawler</code> before updating it.",
             "fields": {
                 "verbose": {
@@ -1568,7 +1568,7 @@
         },
         "UpdateCrawlerSchedule": {
             "main": "./lib/actions/UpdateCrawlerSchedule.js",
-            "title": "Updates the schedule of a crawler using a <code>cron</code> expression. ",
+            "title": "UpdateCrawlerSchedule",
             "description": "Updates the schedule of a crawler using a <code>cron</code> expression. ",
             "fields": {
                 "verbose": {
@@ -1585,7 +1585,7 @@
         },
         "UpdateDatabase": {
             "main": "./lib/actions/UpdateDatabase.js",
-            "title": "Updates an existing database definition in a Data Catalog.",
+            "title": "UpdateDatabase",
             "description": "Updates an existing database definition in a Data Catalog.",
             "fields": {
                 "verbose": {
@@ -1602,7 +1602,7 @@
         },
         "UpdateDevEndpoint": {
             "main": "./lib/actions/UpdateDevEndpoint.js",
-            "title": "Updates a specified DevEndpoint.",
+            "title": "UpdateDevEndpoint",
             "description": "Updates a specified DevEndpoint.",
             "fields": {
                 "verbose": {
@@ -1619,7 +1619,7 @@
         },
         "UpdateJob": {
             "main": "./lib/actions/UpdateJob.js",
-            "title": "Updates an existing job definition.",
+            "title": "UpdateJob",
             "description": "Updates an existing job definition.",
             "fields": {
                 "verbose": {
@@ -1636,7 +1636,7 @@
         },
         "UpdatePartition": {
             "main": "./lib/actions/UpdatePartition.js",
-            "title": "Updates a partition.",
+            "title": "UpdatePartition",
             "description": "Updates a partition.",
             "fields": {
                 "verbose": {
@@ -1653,7 +1653,7 @@
         },
         "UpdateTable": {
             "main": "./lib/actions/UpdateTable.js",
-            "title": "Updates a metadata table in the Data Catalog.",
+            "title": "UpdateTable",
             "description": "Updates a metadata table in the Data Catalog.",
             "fields": {
                 "verbose": {
@@ -1670,7 +1670,7 @@
         },
         "UpdateTrigger": {
             "main": "./lib/actions/UpdateTrigger.js",
-            "title": "Updates a trigger definition.",
+            "title": "UpdateTrigger",
             "description": "Updates a trigger definition.",
             "fields": {
                 "verbose": {
@@ -1687,7 +1687,7 @@
         },
         "UpdateUserDefinedFunction": {
             "main": "./lib/actions/UpdateUserDefinedFunction.js",
-            "title": "Updates an existing function definition in the Data Catalog.",
+            "title": "UpdateUserDefinedFunction",
             "description": "Updates an existing function definition in the Data Catalog.",
             "fields": {
                 "verbose": {
